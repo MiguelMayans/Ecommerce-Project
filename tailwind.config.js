@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      "custom": ["Space Age"]
+    },
+    extend: {
+      colors: {
+        "primary-color": "var(--primary-color)",
+        "secondary-color": "var(--secondary-color)",
+        "detail-color": "var(--detail-color)",
+        "stroke-color": "var(--stroke-color)"
+      },
+    },
   },
   plugins: [],
 }
