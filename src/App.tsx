@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import CartBtn from './components/CartBtn/CartBtn'
+import Landing from './components/Landing/Landing'
 
 function App() {
 
@@ -11,6 +12,9 @@ function App() {
         <NavBar />
         <CartBtn />
       </header>
+      <body>
+        <Landing />
+      </body>
     </>
   )
 }
