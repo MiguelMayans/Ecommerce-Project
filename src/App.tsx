@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1 className="text-3xl font-bold underline">
-        Hello world! ey que pa!
+        Hello world! prueba 2
       </h1>
     </>
   )
