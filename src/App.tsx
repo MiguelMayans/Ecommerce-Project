@@ -3,6 +3,8 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import CartBtn from './components/CartBtn/CartBtn'
 import Landing from './components/Landing/Landing'
+import Products from './components/Products/Products'
+import Footer from './components/Footer/Footer'
 
 function App() {
 
@@ -14,7 +16,10 @@ function App() {
       </header>
       <body>
         <Landing />
+        <Products />
+        <Footer />
       </body>
+
     </>
   )
 }
