@@ -12,3 +12,7 @@
 body {
     background-color: var(--primary-color);
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
