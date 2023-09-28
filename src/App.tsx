@@ -5,7 +5,6 @@ import Landing from './components/Landing/Landing'
 import Products from './components/Products/Products'
 import Footer from './components/Footer/Footer'
 import { Route, Routes, Link, Navigate } from 'react-router-dom'
-import Checkout from './components/Checkout/Cart'
 import Cart from './components/Checkout/Cart'
 
 

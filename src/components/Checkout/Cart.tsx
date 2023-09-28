@@ -3,6 +3,9 @@ import React from 'react'
 type Props = {}
 
 const Cart = (props: Props) => {
+
+
+
     return (
         <>
             <div className="bg-primary-color h-screen py-10 font-custom text-white">

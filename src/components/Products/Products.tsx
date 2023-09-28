@@ -61,5 +61,4 @@ const Products = (props: Props) => {
     )
 }
 
-
 export default Products
