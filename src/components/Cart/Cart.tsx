@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {}
 
 const Cart = (props: Props) => {
 
+    const [count, setCount] = useState(0)
+
+
+    function decrementCount() {
+        setCount(prevCount => prevCount - 1)
+    }
+
+    function incrementCount() {
+        setCount(prevCount => prevCount + 1)
+    }
 
 
     return (
@@ -17,9 +27,9 @@ const Cart = (props: Props) => {
                                 <table className="w-full">
                                     <thead>
                                         <tr className="text-left font-semibold">
-                                            <th>Product</th>
+                                            <th>Destiny</th>
                                             <th>Price</th>
-                                            <th>Quantity</th>
+                                            <th>Tickets</th>
                                             <th>Total</th>
                                         </tr>
                                     </thead>
@@ -27,7 +37,7 @@ const Cart = (props: Props) => {
                                         <tr>
                                             <td className="py-4">
                                                 <div className="flex items-center">
-                                                    <img className="h-16 w-16 mr-4" src="./src/assets/img/Mercurio.jpeg" alt="Product image"></img>
+                                                    <img className="h-16 w-16 mr-4" src="./public/img/Mercurio.jpeg" alt="Product image"></img>
                                                     <span className="font-semibold">Mercury</span>
                                                 </div>
                                             </td>
