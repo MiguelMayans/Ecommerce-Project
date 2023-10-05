@@ -2,7 +2,7 @@ import { Navigate, Route, Routes, } from "react-router-dom"
 import Landing from "../pages/Landing/Landing"
 import Products from "../pages/Products/Products"
 import About from "../pages/About/About"
-import Cart from "../components/Cart/Cart"
+import Cart from "../pages/Cart/Cart"
 
 
 export const RouterPaths = () => {

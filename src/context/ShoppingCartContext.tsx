@@ -21,7 +21,7 @@ type CartItem = {
 
 const ShoppingCartContext = createContext({} as ShoppingCartContextProps)
 
-export function useShopingCart() {
+export function useShoppingCart() {
     return useContext(ShoppingCartContext)
 }
 
@@ -77,9 +77,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     return (
 
         <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartItems, cartQuantity }}>
-
             {children}
-
         </ShoppingCartContext.Provider>
     )
 }

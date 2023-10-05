@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
-import { useShopingCart } from '../../context/ShoppingCartContext'
+import { useShoppingCart } from '../../context/ShoppingCartContext'
 
 import { PlanetInfo } from "../../assets/db/planets"
 
@@ -9,7 +9,7 @@ type Props = {}
 
 const CartBtn = ({ id }: PlanetInfo) => {
 
-    const { getItemQuantity, cartQuantity } = useShopingCart()
+    const { getItemQuantity, cartQuantity } = useShoppingCart()
     const quantity = getItemQuantity(id)
 
     return (

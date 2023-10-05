@@ -1,10 +1,10 @@
 import { PlanetInfo } from "../../assets/db/planets"
-import { useShopingCart } from "../../context/ShoppingCartContext"
+import { useShoppingCart } from "../../context/ShoppingCartContext"
 import { formatCurrency } from "../../utils/formatCurrency"
 
 export const PlanetCard = ({ name, imgUrl, population, price, id }: PlanetInfo) => {
 
-    const { getItemQuantity, increaseCartQuantity } = useShopingCart()
+    const { getItemQuantity, increaseCartQuantity } = useShoppingCart()
 
     const quantity = getItemQuantity(id)
 
