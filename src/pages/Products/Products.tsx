@@ -10,7 +10,7 @@ const Products = () => {
 
     return (
         <>
-            <div className="grid grid-cols-3 gap-14 mt-10">
+            <div className="grid grid-cols-3 gap-14 mt-8">
                 {planets.map(planet =>
                     <PlanetCard {...planet} />
                 )}

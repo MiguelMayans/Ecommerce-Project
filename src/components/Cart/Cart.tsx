@@ -6,7 +6,6 @@ const Cart = (props: Props) => {
 
     const [count, setCount] = useState(0)
 
-
     function decrementCount() {
         setCount(prevCount => prevCount - 1)
     }
@@ -14,7 +13,6 @@ const Cart = (props: Props) => {
     function incrementCount() {
         setCount(prevCount => prevCount + 1)
     }
-
 
     return (
         <>
@@ -37,7 +35,7 @@ const Cart = (props: Props) => {
                                         <tr>
                                             <td className="py-4">
                                                 <div className="flex items-center">
-                                                    <img className="h-16 w-16 mr-4" src="./public/img/Mercurio.jpeg" alt="Product image"></img>
+                                                    <img className="h-20 w-20 mr-4" src="./public/img/Mercurio.jpeg" alt="Product image"></img>
                                                     <span className="font-semibold">Mercury</span>
                                                 </div>
                                             </td>

@@ -7,10 +7,17 @@
     --secondary-color: #F58426;
     --detail-color: #EF4423;
     --stroke-color: #182E3A;
+    min-width: 1280px;
+
 }
 
 body {
     background-color: var(--primary-color);
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+
+
 }
 
 input[type=number]::-webkit-inner-spin-button {

@@ -1,7 +1,12 @@
 import { PlanetInfo } from "../../assets/db/planets"
+import { useShopingCart } from "../../context/ShoppingCartContext"
 import { formatCurrency } from "../../utils/formatCurrency"
 
-export const PlanetCard = ({ name, imgUrl, population, price }: PlanetInfo) => {
+export const PlanetCard = ({ name, imgUrl, population, price, id }: PlanetInfo) => {
+
+    const { getItemQuantity, increaseCartQuantity } = useShopingCart()
+
+    const quantity = getItemQuantity(id)
 
     return (
         <>
@@ -20,7 +25,7 @@ export const PlanetCard = ({ name, imgUrl, population, price }: PlanetInfo) => {
                                     <button className="w-72 bg-black duration-200 mt-6">
                                         <div className="bg-detail-color flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 w-full">
                                             <h4 className="duration-200 m-1 my-0 mx-auto flex flex-row">
-                                                <div className="items-center p-1">add to cart</div>
+                                                <div onClick={() => increaseCartQuantity(id)} className="items-center p-1">add to cart</div>
                                             </h4>
                                         </div>
                                     </button>
