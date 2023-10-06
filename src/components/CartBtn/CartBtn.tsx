@@ -1,26 +1,59 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
-
 import { PlanetInfo } from "../../assets/db/planets"
+import { AuthContext } from '../../auth/context/AuthContext'
 
 type Props = {}
 
 const CartBtn = ({ id }: PlanetInfo) => {
 
-    const { getItemQuantity, cartQuantity } = useShoppingCart()
-    const quantity = getItemQuantity(id)
+    const { cartQuantity } = useShoppingCart()
+    const { login, logout, user } = useContext(AuthContext)
+
+    const [loggedIn, setLoggedIn] = useState(false)
+
+    const navigate = useNavigate()
+
+    const onLogout = () => {
+        setLoggedIn(false)
+        logout();
+        navigate("/", {
+            replace: true
+        })
+    }
+
+    const onLogin = () => {
+        setLoggedIn(true)
+        login("Miguel")
+        navigate("/", {
+            replace: true
+        })
+    }
 
     return (
-        <>
+        <> {loggedIn === false ?
             <div className="flex flex-row ml-72 my-2">
                 <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
                     <h4 className="duration-200 m-1">
-                        <div className="flex justify-start items-center">LOGIN</div>
+                        <button onClick={onLogin} className="flex justify-start items-center">LOGIN</button>
                     </h4>
                 </div>
             </div>
+
+            : <div className="flex flex-row ml-72 my-2">
+                <button onClick={onLogout}>
+                    <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
+                        <h4 className="duration-200 m-1">
+
+                            <div className="flex justify-start items-center">{`Logout ${user && user?.name}`}</div>
+                        </h4>
+                    </div>
+                </button>
+            </div>
+        }
+
 
             <div className="flex flex-row ml-auto my-2 relative">
                 <div style={{ animation: "scale-up-center, 1s, cubic-bezier(0.4, 0, 0.2, 1), both" }}>

@@ -3,7 +3,7 @@ import planets from '../../assets/db/planets'
 import CartItem from '../../components/CartItem/CartItem'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { formatCurrency } from '../../utils/formatCurrency'
-
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -55,13 +55,16 @@ const Cart = () => {
                                     <span>Total</span>
                                     <span>{formatCurrency(subtotal + (subtotal / 21))}</span>
                                 </div>
-                                <button className="bg-secondary-color text-white py-2 px-4 mt-4 w-full">Checkout</button>
-
+                                <NavLink to={"/checkout"}>
+                                    <button className="bg-secondary-color text-white py-2 px-4 mt-4 w-full" >Checkout</button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </>
 
     )
