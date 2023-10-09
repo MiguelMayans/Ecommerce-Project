@@ -1,4 +1,5 @@
 
+import { FC } from 'react'
 import planets from '../../assets/db/planets'
 import CartItem from '../../components/CartItem/CartItem'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
@@ -7,9 +8,10 @@ import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
-const Cart = () => {
+const Cart: FC = () => {
 
     const { cartItems } = useShoppingCart()
+
     const subtotal = cartItems.reduce((total, CartItem) => {
         const planet = planets.find(p => p.id === CartItem.id)
         return total + (planet?.price || 0) * CartItem.quantity

@@ -35,25 +35,26 @@ const CartBtn = ({ id }: PlanetInfo) => {
     return (
         <> {loggedIn === false ?
             <div className="flex flex-row ml-72 my-2">
-                <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
-                    <h4 className="duration-200 m-1">
-                        <button onClick={onLogin} className="flex justify-start items-center">LOGIN</button>
-                    </h4>
-                </div>
+                <button onClick={onLogin} className="flex justify-start items-center">
+                    <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
+                        <h4 className="duration-200 m-1">
+                            LOGIN
+                        </h4>
+                    </div>
+                </button>
             </div>
 
-            : <div className="flex flex-row ml-72 my-2">
+            : <div className="flex flex-row ml-32 my-2">
                 <button onClick={onLogout}>
                     <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
                         <h4 className="duration-200 m-1">
 
-                            <div className="flex justify-start items-center">{`Logout ${user && user?.name}`}</div>
+                            <div className="flex justify-start items-center">{`Welcome ${user && user?.name}`}</div>
                         </h4>
                     </div>
                 </button>
             </div>
         }
-
 
             <div className="flex flex-row ml-auto my-2 relative">
                 <div style={{ animation: "scale-up-center, 1s, cubic-bezier(0.4, 0, 0.2, 1), both" }}>

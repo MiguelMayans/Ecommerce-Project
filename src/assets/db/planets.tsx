@@ -13,7 +13,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 1,
         "name": "Mercury",
-        "imgUrl": "./public/img/Mercurio.jpeg",
+        "imgUrl": "./public/img/Mercurio.jpg",
         "system": "Sol",
         "population": 49000,
         "distance": "82.5 Millions of Km",
@@ -23,7 +23,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 2,
         "name": "Venus",
-        "imgUrl": "./public/img/Venus.jpeg",
+        "imgUrl": "./public/img/Venus.jpg",
         "system": "Sol",
         "population": 54000,
         "distance": "39.79 Millions of Km",
@@ -43,7 +43,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 4,
         "name": "Jupiter",
-        "imgUrl": "./public/img/Jupiter.jpeg",
+        "imgUrl": "./public/img/Jupiter.jpg",
         "system": "Sol",
         "population": 15000,
         "distance": "591.97 Millions of Km",
@@ -53,7 +53,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 5,
         "name": "Saturn",
-        "imgUrl": "./public/img/Saturno.jpeg",
+        "imgUrl": "./public/img/Saturno.jpg",
         "system": "Sol",
         "population": 34000,
         "distance": "1204.28 Millions of Km",
@@ -63,7 +63,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 6,
         "name": "Uranus",
-        "imgUrl": "./public/img/Urano.jpeg",
+        "imgUrl": "./public/img/Urano.jpg",
         "system": "Sol",
         "population": 11000,
         "distance": "2586.88 Millions of Km",
@@ -73,7 +73,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 7,
         "name": "Neptune",
-        "imgUrl": "./public/img/Neptuno.jpeg",
+        "imgUrl": "./public/img/Neptuno.jpg",
         "system": "Sol",
         "population": 15000,
         "distance": "4311.02 Millions of Km",
@@ -83,7 +83,7 @@ const planets: PlanetInfo[] = [
     {
         "id": 8,
         "name": "Pluto",
-        "imgUrl": "./public/img/Plutón.jpeg",
+        "imgUrl": "./public/img/Plutón.jpg",
         "system": "Sol",
         "population": 10500,
         "distance": "4293.37 Millions of Km",

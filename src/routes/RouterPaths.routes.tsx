@@ -6,6 +6,7 @@ import Checkout from "../pages/Checkout/Checkout"
 import Cart from "../pages/Cart/Cart"
 
 import PrivateRoutes from "./PrivateRoutes.routes"
+import ProductDetail from "../pages/ProductDetail/ProductDetail"
 
 
 export const RouterPaths = () => {
@@ -14,6 +15,7 @@ export const RouterPaths = () => {
         <Routes>
             <Route path='/' element={<Landing />} />
             <Route path='/travel' element={<Products />} />
+            <Route path="/:name" element={<ProductDetail />} />
             <Route path='/about' element={<About />} />
             <Route path='/cart' element={<Cart />} />
 
