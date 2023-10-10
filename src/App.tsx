@@ -16,11 +16,8 @@ function App() {
             <NavBar />
             <CartBtn id={0} name={''} imgUrl={''} system={''} population={0} distance={''} description={''} price={0} />
           </header>
-
-          <body>
-            <RouterPaths />
-            <Footer />
-          </body>
+          <RouterPaths />
+          <Footer />
         </ShoppingCartProvider>
       </AuthProvider>
     </>

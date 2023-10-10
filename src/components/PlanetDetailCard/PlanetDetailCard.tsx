@@ -31,13 +31,13 @@ const PlanetDetailCard: FC<PlanetInfo> = () => {
 
                             <div className=' mx-auto my-0 mt-10'>
                                 <h2 className='bg-secondary-color w-56 my-0 mx-auto mb-6 text-3xl p-2'>{name}</h2>
-                                <p className='underline mb-4'>Population</p>
-                                <p>{population} Habitants</p>
-                                <p className='underline mb-4 mt-2'>System</p>
+                                <p className='underline mb-4 text-lg'>Population</p>
+                                <p>{population.toLocaleString()} Habitants</p>
+                                <p className='underline mb-4 mt-2 text-lg'>System</p>
                                 <p>{system}</p>
-                                <p className='underline mb-4 mt-2'>Distance from Earth</p>
+                                <p className='underline mb-4 mt-2 text-lg'>Distance from Earth</p>
                                 <p>{distance}</p>
-                                <p className='underline mb-4 mt-2'>Description</p>
+                                <p className='underline mb-4 mt-2 text-lg'>Description</p>
                                 <p className='mb-6'>{description}</p>
                             </div>
 
