@@ -2,12 +2,23 @@ import { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
-import { PlanetInfo } from "../../assets/db/planets"
+
 import { AuthContext } from '../../auth/context/AuthContext'
 
-type Props = {}
+type CartBtnProps = {
+    id: number;
+    name: string;
+    imgUrl: string;
+    system: string;
+    population: number;
+    distance: string;
+    description: string;
+    price: number;
+}
 
-const CartBtn = ({ id }: PlanetInfo) => {
+
+const CartBtn = ({ id }: CartBtnProps) => {
+
 
     const { cartQuantity } = useShoppingCart()
     const { login, logout, user, isLogged } = useContext(AuthContext)

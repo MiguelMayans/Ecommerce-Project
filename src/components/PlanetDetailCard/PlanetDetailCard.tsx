@@ -1,11 +1,10 @@
-import { FC } from 'react'
-import planets from '../../assets/db/planets'
-import { PlanetInfo } from "../../assets/db/planets"
-
 import { useParams } from 'react-router-dom'
+import { useApiContext } from '../../context/ApiContext'
+import { FC } from 'react'
 
+const PlanetDetailCard: FC = () => {
 
-const PlanetDetailCard: FC<PlanetInfo> = () => {
+    const planets = useApiContext()
 
     const { name: nameParam } = useParams()
 
@@ -18,7 +17,6 @@ const PlanetDetailCard: FC<PlanetInfo> = () => {
     const { name, imgUrl, population, system, distance, description } = productDetails
 
     return (
-
 
         <>
 

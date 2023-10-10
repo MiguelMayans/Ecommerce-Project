@@ -1,16 +1,19 @@
 
 import { FC, useContext } from 'react'
-import planets from '../../assets/db/planets'
+
 import CartItem from '../../components/CartItem/CartItem'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../auth/context/AuthContext'
 import toast from 'react-hot-toast'
+import { useApiContext } from '../../context/ApiContext'
 
 type Props = {}
 
 const Cart: FC = () => {
+
+    const planets = useApiContext()
 
     const { cartItems } = useShoppingCart()
 

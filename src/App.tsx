@@ -6,23 +6,25 @@ import { RouterPaths } from './routes/RouterPaths.routes'
 import { ShoppingCartProvider } from './context/ShoppingCartContext'
 import AuthProvider from "./auth/context/AuthProvider"
 import { Toaster } from "react-hot-toast"
+import { ApiContextProvider } from "./context/ApiContext"
 
 function App() {
 
   return (
     <>
-
-      <AuthProvider>
-        <ShoppingCartProvider>
-          <header className="flex flex-row font-custom text-xl sticky top-0 z-10">
-            <NavBar />
-            <CartBtn id={0} name={''} imgUrl={''} system={''} population={0} distance={''} description={''} price={0} />
-          </header>
-          <RouterPaths />
-          <Toaster toastOptions={{ className: "font-custom" }} />
-          <Footer />
-        </ShoppingCartProvider>
-      </AuthProvider>
+      <ApiContextProvider>
+        <AuthProvider>
+          <ShoppingCartProvider>
+            <header className="flex flex-row font-custom text-xl sticky top-0 z-10">
+              <NavBar />
+              <CartBtn id={0} name={''} imgUrl={''} system={''} population={0} distance={''} description={''} price={0} />
+            </header>
+            <RouterPaths />
+            <Toaster toastOptions={{ className: "font-custom" }} />
+            <Footer />
+          </ShoppingCartProvider>
+        </AuthProvider>
+      </ApiContextProvider>
     </>
 
   )

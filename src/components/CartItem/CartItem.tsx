@@ -1,7 +1,7 @@
-import React from 'react'
-import planets from '../../assets/db/planets'
+
 import { formatCurrency } from '../../utils/formatCurrency'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
+import { useApiContext } from '../../context/ApiContext'
 
 type CartItemProps = {
     id: number,
@@ -9,6 +9,9 @@ type CartItemProps = {
 }
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
+
+    const planets = useApiContext()
+
     const planet = planets.find(planet => planet.id === id)
     if (planet == null) return null
 

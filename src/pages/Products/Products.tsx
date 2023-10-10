@@ -1,14 +1,17 @@
 
 import { useSearchParams } from 'react-router-dom'
-import planets from '../../assets/db/planets'
+
 import { PlanetCard } from '../../components/PlanetCard/PlanetCard'
 import React, { FC, useId } from 'react'
+import { useApiContext } from '../../context/ApiContext'
 
 type Props = {
 
 }
 
 const Products: FC = () => {
+
+    const planets = useApiContext()
 
     const [searchParams, setSearchParams] = useSearchParams()
     const query = searchParams.get("q") ?? ""

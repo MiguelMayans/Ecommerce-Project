@@ -1,15 +1,5 @@
-export type PlanetInfo = {
-    id: number;
-    name: string;
-    imgUrl: string;
-    system: string;
-    population: number;
-    distance: string;
-    description: string;
-    price: number;
-}
-
-const planets: PlanetInfo[] = [
+{
+    "planets": [
     {
         "id": 1,
         "name": "Mercury",
@@ -91,5 +81,4 @@ const planets: PlanetInfo[] = [
         "price": 18900
     }
 ]
-
-export default planets
+}
