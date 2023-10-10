@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { PlanetInfo } from "../../assets/db/planets"
@@ -10,14 +10,12 @@ type Props = {}
 const CartBtn = ({ id }: PlanetInfo) => {
 
     const { cartQuantity } = useShoppingCart()
-    const { login, logout, user } = useContext(AuthContext)
-
-    const [loggedIn, setLoggedIn] = useState(false)
+    const { login, logout, user, isLogged } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     const onLogout = () => {
-        setLoggedIn(false)
+        isLogged
         logout();
         navigate("/", {
             replace: true
@@ -25,7 +23,7 @@ const CartBtn = ({ id }: PlanetInfo) => {
     }
 
     const onLogin = () => {
-        setLoggedIn(true)
+        isLogged
         login("Miguel")
         navigate("/", {
             replace: true
@@ -33,7 +31,7 @@ const CartBtn = ({ id }: PlanetInfo) => {
     }
 
     return (
-        <> {loggedIn === false ?
+        <> {isLogged === false ?
             <div className="flex flex-row ml-72 my-2">
                 <button onClick={onLogin} className="flex justify-start items-center">
                     <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
@@ -48,7 +46,6 @@ const CartBtn = ({ id }: PlanetInfo) => {
                 <button onClick={onLogout}>
                     <div className="bg-primay-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 w-full hover:bg-secondary-color">
                         <h4 className="duration-200 m-1">
-
                             <div className="flex justify-start items-center">{`Welcome ${user && user?.name}`}</div>
                         </h4>
                     </div>
@@ -58,7 +55,7 @@ const CartBtn = ({ id }: PlanetInfo) => {
 
             <div className="flex flex-row ml-auto my-2 relative">
                 <div style={{ animation: "scale-up-center, 1s, cubic-bezier(0.4, 0, 0.2, 1), both" }}>
-                    <Link to={"/cart"}>
+                    <NavLink to={"/cart"}>
                         <button className="w-full bg-stroke-color duration-200">
                             <div className="bg-secondary-color active:translate-x-0 active:translate-y-0 flex items-center border-slate-900 border-2 duration-200 px-8 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 w-full">
                                 <h4 className="duration-200 m-1">
@@ -67,7 +64,7 @@ const CartBtn = ({ id }: PlanetInfo) => {
                                 </h4>
                             </div>
                         </button>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </>

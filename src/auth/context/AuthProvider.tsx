@@ -6,7 +6,7 @@ import { AuthContext } from "./AuthContext";
 const init = () => {
     const user = JSON.parse(localStorage.getItem("user") || "{}")
     return {
-        isLogged: !!user,
+        isLogged: false,
         user
     }
 }

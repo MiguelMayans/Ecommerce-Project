@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 
 type ShoppingCartContextProps = {
 
@@ -39,11 +39,11 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const cartQuantity = cartItems.reduce(
         (quantity, item) => item.quantity + quantity, 0)
 
-    function getItemQuantity(id: number) {
+    const getItemQuantity = (id: number) => {
         return cartItems.find(item => item.id === id)?.quantity || 0
     }
 
-    function increaseCartQuantity(id: number) {
+    const increaseCartQuantity = useCallback((id: number) => {
         setCartItems(currentItems => {
             if (currentItems.find(item => item.id === id) == null) {
                 return [...currentItems, { id, quantity: 1 }]
@@ -57,9 +57,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
                 })
             }
         })
-    }
+    }, [cartItems])
 
-    function decreaseCartQuantity(id: number) {
+    const decreaseCartQuantity = useCallback((id: number) => {
         setCartItems(currentItems => {
             if (currentItems.find(item => item.id === id)?.quantity === 1) {
                 return currentItems.filter(item => item.id !== id)
@@ -73,9 +73,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
                 })
             }
         })
-    }
+    }, [cartItems])
 
-    function removeFromCart(id: number) {
+    const removeFromCart = (id: number) => {
         setCartItems(currentItems => {
             return currentItems.filter(item => item.id !== id)
         })

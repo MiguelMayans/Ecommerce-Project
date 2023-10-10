@@ -1,10 +1,12 @@
 
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import planets from '../../assets/db/planets'
 import CartItem from '../../components/CartItem/CartItem'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { NavLink } from 'react-router-dom'
+import { AuthContext } from '../../auth/context/AuthContext'
+import toast from 'react-hot-toast'
 
 type Props = {}
 
@@ -12,13 +14,19 @@ const Cart: FC = () => {
 
     const { cartItems } = useShoppingCart()
 
+
+    const { isLogged } = useContext(AuthContext)
+
     const subtotal = cartItems.reduce((total, CartItem) => {
         const planet = planets.find(p => p.id === CartItem.id)
         return total + (planet?.price || 0) * CartItem.quantity
     }, 0)
 
+    const notify = () => toast("You must be logged in to proceed to checkout")
+
     return (
-        <>
+
+        <> {subtotal === 0 ? <h2 className='font-custom text-2xl mt-20'>Your Cart is still empty!</h2> :
             <div className="bg-primary-color h-screen py-10 font-custom text-white">
                 <div className="container mx-auto px-4">
                     <h1 className="text-2xl mb-4 text-stroke-color">Shopping Cart</h1>
@@ -57,8 +65,11 @@ const Cart: FC = () => {
                                     <span>Total</span>
                                     <span>{formatCurrency(subtotal + (subtotal / 21))}</span>
                                 </div>
+
                                 <NavLink to={"/checkout"}>
-                                    <button className="bg-secondary-color text-white py-2 px-4 mt-4 w-full" >Checkout</button>
+                                    <div>
+                                        <button onClick={isLogged === false ? notify : undefined} className="bg-secondary-color text-white py-2 px-4 mt-4 w-full" >Checkout</button>
+                                    </div>
                                 </NavLink>
                             </div>
                         </div>
@@ -66,7 +77,7 @@ const Cart: FC = () => {
                 </div>
             </div>
 
-
+        }
         </>
 
     )
