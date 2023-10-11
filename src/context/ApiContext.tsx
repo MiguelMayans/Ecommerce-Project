@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useMemo, useState } from "react";
 
-type PlanetInfo = {
+export type PlanetInfo = {
     id: number;
     name: string;
     imgUrl: string;
@@ -27,20 +27,25 @@ export function ApiContextProvider({ children }: ApiContextProviderProps) {
 
     const [planets, setPlanets] = useState<PlanetInfo[]>([])
 
-    useEffect(() => {
-        const fetchPlanetsFromApi = async () => {
+    const fetchPlanetsFromApi = useCallback(async () => {
+        try {
             const response = await fetch(url)
             const data: PlanetInfo[] = await response.json()
             setPlanets(data)
         }
-        fetchPlanetsFromApi()
-
+        catch (error) {
+            console.error(`Found an error fetching data from ${url}:`, error)
+        }
     }, [url])
+
+    fetchPlanetsFromApi()
+
+    useMemo(() => fetchPlanetsFromApi(), [fetchPlanetsFromApi])
 
     return (
         <ApiContext.Provider value={planets}>
             {children}
         </ApiContext.Provider>
     )
-
 }
+

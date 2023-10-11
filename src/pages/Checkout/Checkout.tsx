@@ -14,9 +14,7 @@ const Checkout: FC = (props: Props) => {
     return (
         <>
             <div className='font-custom text-2xl mt-10'>Thank you for your purchase!</div>
-
         </>
-
     )
 }
 

@@ -1,4 +1,4 @@
-import { useReducer, ReactNode, useState } from "react";
+import { useReducer, ReactNode } from "react";
 import authReducer from "./AuthReducer";
 import { LogActions } from "./AuthReducer";
 import { AuthContext } from "./AuthContext";

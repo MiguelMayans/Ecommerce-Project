@@ -3,7 +3,6 @@ export const LogActions = {
     logout: "LOG_OUT"
 }
 
-
 const authReducer = (state, action) => {
 
     switch (action.type) {

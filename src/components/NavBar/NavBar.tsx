@@ -61,4 +61,4 @@ const NavBar = (props: Props) => {
     )
 }
 
-export default NavBar
+export default React.memo(NavBar)

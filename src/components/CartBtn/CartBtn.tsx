@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
@@ -83,4 +83,4 @@ const CartBtn = ({ id }: CartBtnProps) => {
     )
 }
 
-export default CartBtn
+export default React.memo(CartBtn)
