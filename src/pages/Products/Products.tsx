@@ -1,15 +1,17 @@
 
 import { useSearchParams } from 'react-router-dom'
-
-import { PlanetCard } from '../../components/PlanetCard/PlanetCard'
-import React, { FC, useId } from 'react'
+import React, { FC, Suspense, lazy, startTransition, useId } from 'react'
 import { useApiContext } from '../../context/ApiContext'
+import CardLoader from '../../components/Loaders/CardLoader'
+
 
 type Props = {
 
 }
 
 const Products: FC = () => {
+
+    const PlanetCard = lazy(() => import('../../components/PlanetCard/PlanetCard'))
 
     const planets = useApiContext()
 
@@ -20,7 +22,9 @@ const Products: FC = () => {
 
     const handleInput = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = target
-        setSearchParams({ q: value })
+        startTransition(() => {
+            setSearchParams({ q: value })
+        })
     }
 
     return (
@@ -38,8 +42,11 @@ const Products: FC = () => {
                     })
                     .map(planet =>
                         <li key={listId + planet.name}>
-                            <PlanetCard {...planet} />
+                            <Suspense fallback={<CardLoader />}>
+                                <PlanetCard {...planet} />
+                            </Suspense>
                         </li>
+
                     )}
             </ul>
         </>

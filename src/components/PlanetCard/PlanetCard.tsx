@@ -4,7 +4,7 @@ import { formatCurrency } from "../../utils/formatCurrency"
 import { FC } from "react"
 import { PlanetInfo } from "../../context/ApiContext"
 
-export const PlanetCard: FC<PlanetInfo> = ({ name, imgUrl, population, price, id }: PlanetInfo) => {
+const PlanetCard: FC<PlanetInfo> = ({ name, imgUrl, population, price, id }: PlanetInfo) => {
 
     const { increaseCartQuantity } = useShoppingCart()
 
@@ -42,3 +42,5 @@ export const PlanetCard: FC<PlanetInfo> = ({ name, imgUrl, population, price, id
         </div>
     )
 }
+
+export default PlanetCard
