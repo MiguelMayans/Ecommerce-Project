@@ -22,7 +22,7 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
             <tr>
                 <td className="py-4">
                     <div className="flex items-center">
-                        <img className="h-20 w-20 mr-4" src={planet.imgUrl} alt={planet.name}></img>
+                        <img className="h-20 w-20 mr-4" src={planet.imgUrl} alt={planet.name} loading='lazy'></img>
                         <span className="font-semibold">{planet.name}</span>
                     </div>
                 </td>

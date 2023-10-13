@@ -17,7 +17,7 @@ export const PlanetCard: FC<PlanetInfo> = ({ name, imgUrl, population, price, id
                         <div className="w-[350px] h-[600px] bg-stroke-color flex flex-col font-custom text-white m-1">
 
                             <NavLink to={`/${name}`}>
-                                <img src={imgUrl} alt={name} className='p-8' />
+                                <img src={imgUrl} alt={name} className='p-8' loading="lazy" />
                                 <h2 className='bg-secondary-color w-52 my-0 mx-auto mb-3 text-xl p-1'>{name}</h2>
                             </NavLink>
 

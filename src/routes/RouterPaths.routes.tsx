@@ -1,23 +1,24 @@
 import { Navigate, Route, Routes, } from "react-router-dom"
-import Landing from "../pages/Landing/Landing"
-import Products from "../pages/Products/Products"
-import About from "../pages/About/About"
-import Checkout from "../pages/Checkout/Checkout"
-import Cart from "../pages/Cart/Cart"
-
 import PrivateRoutes from "./PrivateRoutes.routes"
-import ProductDetail from "../pages/ProductDetail/ProductDetail"
+import { Suspense, lazy } from "react"
+import Landing from "../pages/Landing/Landing"
 
+const Products = lazy(() => import("../pages/Products/Products"))
+const ProductDetail = lazy(() => import("../pages/ProductDetail/ProductDetail"))
+const About = lazy(() => import("../pages/About/About"))
+const Cart = lazy(() => import("../pages/Cart/Cart"))
+const Checkout = lazy(() => import("../pages/Checkout/Checkout"))
+Landing
 
 export const RouterPaths = () => {
 
     return (
         <Routes>
             <Route path='/' element={<Landing />} />
-            <Route path='/travel' element={<Products />} />
-            <Route path="/:name" element={<ProductDetail />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/cart' element={<Cart />} />
+            <Route path='/travel' element={<Suspense fallback={<div className="font-custom">Loading...</div>}><Products /></Suspense>} />
+            <Route path="/:name" element={<Suspense fallback="Loading..."><ProductDetail /></Suspense>} />
+            <Route path='/about' element={<Suspense fallback="Loading..."><About /></Suspense>} />
+            <Route path='/cart' element={<Suspense fallback="Loading..."><Cart /></Suspense>} />
 
             <Route path="/checkout" element={
                 <PrivateRoutes>

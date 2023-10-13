@@ -38,7 +38,7 @@ export function ApiContextProvider({ children }: ApiContextProviderProps) {
         }
     }, [url])
 
-    fetchPlanetsFromApi()
+
 
     useMemo(() => fetchPlanetsFromApi(), [fetchPlanetsFromApi])
 
