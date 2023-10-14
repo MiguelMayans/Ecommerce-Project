@@ -1,9 +1,7 @@
-import React from 'react'
+import { FC } from 'react'
 import { Helmet } from 'react-helmet-async'
 
-type Props = {}
-
-const Landing = () => {
+const Landing: FC = () => {
     return (
         <>
             <Helmet>

@@ -1,12 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-type Props = {}
-
-const NavBar = (props: Props) => {
+const NavBar = () => {
     return (
         <>
-
             <div className="flex flex-wrap justify-center mx-6 my-2">
                 <div className="w-full">
                     <div style={{ animation: "scale-up-center, 1s, cubic-bezier(0.4, 0, 0.2, 1), both" }}>
@@ -54,9 +51,6 @@ const NavBar = (props: Props) => {
                     </div>
                 </div>
             </div>
-
-
-
         </>
     )
 }

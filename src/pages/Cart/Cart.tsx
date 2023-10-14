@@ -1,22 +1,17 @@
-
 import { FC, useContext } from 'react'
-
 import CartItem from '../../components/CartItem/CartItem'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../auth/context/AuthContext'
 import toast from 'react-hot-toast'
-import { useApiContext } from '../../context/ApiContext'
-
-type Props = {}
+import { useApi } from '../../hooks/useApi'
 
 const Cart: FC = () => {
 
-    const planets = useApiContext()
+    const planets = useApi()
 
-    const { cartItems } = useShoppingCart()
-
+    const { cartItems, setCartItems } = useShoppingCart()
 
     const { isLogged } = useContext(AuthContext)
 
@@ -71,7 +66,7 @@ const Cart: FC = () => {
 
                                 <NavLink to={"/checkout"}>
                                     <div>
-                                        <button onClick={isLogged === false ? notify : undefined} className="bg-secondary-color text-white py-2 px-4 mt-4 w-full" >Checkout</button>
+                                        <button onClick={() => isLogged === false ? notify() : setCartItems([])} className="bg-secondary-color text-white py-2 px-4 mt-4 w-full" >Checkout</button>
                                     </div>
                                 </NavLink>
                             </div>

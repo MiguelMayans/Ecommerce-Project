@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useCallback, useContext, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 export type PlanetInfo = {
     id: number;
@@ -11,17 +11,7 @@ export type PlanetInfo = {
     price: number;
 }
 
-type ApiContextProviderProps = {
-    children: ReactNode
-}
-
-const ApiContext = createContext({} as PlanetInfo[])
-
-export function useApiContext() {
-    return useContext(ApiContext)
-}
-
-export function ApiContextProvider({ children }: ApiContextProviderProps) {
+export function useApi() {
 
     const url = import.meta.env.VITE_API_BASE_URL
 
@@ -38,14 +28,8 @@ export function ApiContextProvider({ children }: ApiContextProviderProps) {
         }
     }, [url])
 
-
-
     useMemo(() => fetchPlanetsFromApi(), [fetchPlanetsFromApi])
 
-    return (
-        <ApiContext.Provider value={planets}>
-            {children}
-        </ApiContext.Provider>
-    )
+    return planets
 }
 

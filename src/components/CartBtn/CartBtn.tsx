@@ -16,9 +16,7 @@ type CartBtnProps = {
     price: number;
 }
 
-
 const CartBtn = ({ id }: CartBtnProps) => {
-
 
     const { cartQuantity } = useShoppingCart()
     const { login, logout, user, isLogged } = useContext(AuthContext)

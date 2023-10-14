@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, } from "react-router-dom"
+import { Route, Routes, } from "react-router-dom"
 import PrivateRoutes from "./PrivateRoutes.routes"
 import { Suspense, lazy } from "react"
 import Landing from "../pages/Landing/Landing"

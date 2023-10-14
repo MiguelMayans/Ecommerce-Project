@@ -1,7 +1,7 @@
 
 import { formatCurrency } from '../../utils/formatCurrency'
 import { useShoppingCart } from '../../context/ShoppingCartContext'
-import { useApiContext } from '../../context/ApiContext'
+import { useApi } from '../../hooks/useApi'
 
 type CartItemProps = {
     id: number,
@@ -10,7 +10,7 @@ type CartItemProps = {
 
 const CartItem = ({ id, quantity }: CartItemProps) => {
 
-    const planets = useApiContext()
+    const planets = useApi()
 
     const planet = planets.find(planet => planet.id === id)
     if (planet == null) return null

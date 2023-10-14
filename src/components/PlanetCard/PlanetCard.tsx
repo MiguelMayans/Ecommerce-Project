@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import { formatCurrency } from "../../utils/formatCurrency"
 import { FC } from "react"
-import { PlanetInfo } from "../../context/ApiContext"
+import { PlanetInfo } from "../../hooks/useApi"
 
 const PlanetCard: FC<PlanetInfo> = ({ name, imgUrl, population, price, id }: PlanetInfo) => {
 

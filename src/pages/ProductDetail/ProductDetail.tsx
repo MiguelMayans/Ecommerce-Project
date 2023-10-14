@@ -1,10 +1,7 @@
-
+import { FC } from 'react'
 import PlanetDetailCard from '../../components/PlanetDetailCard/PlanetDetailCard'
 
-
-type Props = {}
-
-const ProductDetail = () => {
+const ProductDetail: FC = () => {
     return (
         <>
             <PlanetDetailCard />

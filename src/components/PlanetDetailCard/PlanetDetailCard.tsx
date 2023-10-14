@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom'
-import { useApiContext } from '../../context/ApiContext'
 import { FC } from 'react'
+import { useApi } from '../../hooks/useApi'
 
 const PlanetDetailCard: FC = () => {
 
-    const planets = useApiContext()
+    const planets = useApi()
 
     const { name: nameParam } = useParams()
 
@@ -19,7 +19,6 @@ const PlanetDetailCard: FC = () => {
     return (
 
         <>
-
             <div className="flex flex-wrap justify-center mt-10">
                 <div className="bg-black pr-1 pb-1">
                     <div className="bg-stroke-color flex items-center border-slate-900 border-2 px-2 py-2 -translate-x-1 -translate-y-1">

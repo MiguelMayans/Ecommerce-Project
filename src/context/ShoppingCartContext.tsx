@@ -1,13 +1,13 @@
-import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, startTransition, useCallback, useContext, useEffect, useState } from "react";
 
 type ShoppingCartContextProps = {
-
     getItemQuantity: (id: number) => number,
     increaseCartQuantity: (id: number) => void,
     decreaseCartQuantity: (id: number) => void,
     removeFromCart: (id: number) => void,
     cartQuantity: number,
     cartItems: CartItem[]
+    setCartItems: (items: CartItem[]) => void
 }
 
 type ShoppingCartProviderProps = {
@@ -43,18 +43,20 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     }
 
     const increaseCartQuantity = useCallback((id: number) => {
-        setCartItems(currentItems => {
-            if (currentItems.find(item => item.id === id) == null) {
-                return [...currentItems, { id, quantity: 1 }]
-            } else {
-                return currentItems.map(item => {
-                    if (item.id === id) {
-                        return { ...item, quantity: item.quantity + 1 }
-                    } else {
-                        return item
-                    }
-                })
-            }
+        startTransition(() => {
+            setCartItems(currentItems => {
+                if (currentItems.find(item => item.id === id) == null) {
+                    return [...currentItems, { id, quantity: 1 }]
+                } else {
+                    return currentItems.map(item => {
+                        if (item.id === id) {
+                            return { ...item, quantity: item.quantity + 1 }
+                        } else {
+                            return item
+                        }
+                    })
+                }
+            })
         })
     }, [cartItems])
 
@@ -81,7 +83,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     }
 
     return (
-        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartItems, cartQuantity }}>
+        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, cartItems, cartQuantity, setCartItems }}>
             {children}
         </ShoppingCartContext.Provider>
     )

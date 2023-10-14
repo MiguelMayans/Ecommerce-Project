@@ -1,19 +1,14 @@
 
 import { useSearchParams } from 'react-router-dom'
-import React, { FC, Suspense, lazy, startTransition, useId } from 'react'
-import { useApiContext } from '../../context/ApiContext'
+import React, { FC, Suspense, lazy, useId } from 'react'
 import CardLoader from '../../components/Loaders/CardLoader'
-
-
-type Props = {
-
-}
+import { useApi } from '../../hooks/useApi'
 
 const Products: FC = () => {
 
     const PlanetCard = lazy(() => import('../../components/PlanetCard/PlanetCard'))
 
-    const planets = useApiContext()
+    const planets = useApi()
 
     const [searchParams, setSearchParams] = useSearchParams()
     const query = searchParams.get("q") ?? ""
@@ -22,9 +17,7 @@ const Products: FC = () => {
 
     const handleInput = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = target
-        startTransition(() => {
-            setSearchParams({ q: value })
-        })
+        setSearchParams({ q: value })
     }
 
     return (

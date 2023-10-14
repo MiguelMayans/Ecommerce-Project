@@ -1,15 +1,6 @@
-import React, { FC } from 'react'
-import CartItem from '../../components/CartItem/CartItem'
-import { useShoppingCart } from '../../context/ShoppingCartContext'
-import { formatCurrency } from '../../utils/formatCurrency'
+import { FC } from 'react'
 
-
-
-type Props = {}
-
-const Checkout: FC = (props: Props) => {
-
-    const { cartItems } = useShoppingCart()
+const Checkout: FC = () => {
 
     return (
         <>

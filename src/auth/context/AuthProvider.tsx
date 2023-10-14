@@ -30,7 +30,6 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const logout = () => {
         localStorage.removeItem("user")
-
         dispatch({ type: LogActions.logout })
     }
 
