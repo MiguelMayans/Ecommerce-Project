@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa"
 import { useShoppingCart } from '../../context/ShoppingCartContext'
-
 import { AuthContext } from '../../auth/context/AuthContext'
 
 type CartBtnProps = {
